@@ -25,4 +25,14 @@ function App(props) {
   );
 }
 
-export default App;
+const mapDispatchToProps = (dispatch) =>{
+  return {
+    setMagicCards: (cardObject) => {
+      dispatch({
+        type: 'SET_MAGIC_CARDS', payload: cardObject
+      })
+    }
+  }
+}
+
+export default withRouter(connect(null, mapDispatchToProps)(App));
