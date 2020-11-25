@@ -14,9 +14,13 @@ function App(props) {
     })
   }, [props])
 
-function App() {
   return (
     <div className="App">
+       <div id="header">
+          <h1 className="header-name"> Da Basement Games</h1>
+        </div>
+      <NavBar/>
+      <Routes/>
     </div>
   );
 }
