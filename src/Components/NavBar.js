@@ -11,7 +11,7 @@ function NavBar(props) {
         <>
             <nav id="nav-bar">
                 <div className="link-div">
-                    <Link className="link" to="/magic-cards">magic Cards</Link>
+                    <Link className="link" to="/sets" onClick={handleClick}>Sets</Link>
                 </div>
             </nav>
         </>
