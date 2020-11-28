@@ -34,6 +34,11 @@ function Sets(props) {
             }
         }
     }, [])
+
+    const setCard = (card) => {
+        props.setActiveCard(card)
+        props.history.push({pathname: `/sets/${card.group_name}/${card.name}`, state: {card: card, set:props.groupsCards}})
+    }
     return (
         <div>
         </div>
