@@ -97,4 +97,4 @@ const mapStateToProps = (state) => {
         activeCard: state.magicCards.activeCard
     }
 }
-export default Sets
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Sets))
