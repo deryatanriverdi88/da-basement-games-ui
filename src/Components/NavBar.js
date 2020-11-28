@@ -33,4 +33,4 @@ const mapDispatchToProps = (dispatch) =>{
     }
   }
 
-export default withRouter(NavBar)
+  export default withRouter(connect(null, mapDispatchToProps)(NavBar));
