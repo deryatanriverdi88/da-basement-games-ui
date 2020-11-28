@@ -6,6 +6,7 @@ import SetCards from '../Components/SetCards'
 import ActiveCard from '../Components/ActiveCard'
 
 function Sets(props) {
+    const location = useLocation()
     return (
         <div>
         </div>
