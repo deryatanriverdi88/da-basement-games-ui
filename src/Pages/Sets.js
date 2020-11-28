@@ -5,7 +5,7 @@ import SetItem from '../Components/SetItem'
 import SetCards from '../Components/SetCards'
 import ActiveCard from '../Components/ActiveCard'
 
-function Sets() {
+function Sets(props) {
     return (
         <div>
         </div>
