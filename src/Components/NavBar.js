@@ -18,5 +18,19 @@ function NavBar(props) {
     )
 }
 
+const mapDispatchToProps = (dispatch) =>{
+    return {
+      clearGroupsCards: () => {
+        dispatch({
+            type: "CLEAR_GROUPS_CARDS"
+        })
+      },
+      clearActiveCard: () => {
+          dispatch({
+              type: "CLEAR_ACTIVE_CARD"
+          })
+      }
+    }
+  }
 
 export default withRouter(NavBar)
