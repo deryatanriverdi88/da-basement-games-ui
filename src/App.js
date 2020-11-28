@@ -31,7 +31,7 @@ function App(props) {
 
 const mapDispatchToProps = (dispatch) =>{
   return {
-    setMagicCards: (cardObject) => {
+    setGroupNames: (name) => {
       dispatch({
         type: 'SET_MAGIC_CARDS', payload: cardObject
       })
