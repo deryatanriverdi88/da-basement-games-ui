@@ -69,4 +69,24 @@ function Sets(props) {
     )
 }
 
+const mapDispatchToProps = (dispatch) =>{
+    return {
+      setGroupsCards: (cardObject) => {
+        dispatch({
+           type: 'SET_GROUPS_CARDS', payload: cardObject
+        })
+      },
+      clearGroupsCards: () => {
+        dispatch({
+           type: "CLEAR_GROUPS_CARDS"
+        })
+      },
+      setActiveCard: (card) => {
+          dispatch({
+            type: "SET_ACTIVE_CARD", payload: card
+          })
+      }
+    }
+}
+
 export default Sets
