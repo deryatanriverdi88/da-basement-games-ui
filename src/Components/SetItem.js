@@ -5,5 +5,3 @@ export default function SetItem({handleSetClick, set}) {
         </>
     )
 }
-
-
