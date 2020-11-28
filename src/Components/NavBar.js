@@ -3,7 +3,10 @@ import {Link, NavLink, withRouter} from 'react-router-dom'
 import { connect, useSelector } from 'react-redux'
 
 function NavBar(props) {
-
+    const handleClick = () => {
+        props.clearGroupsCards()
+        props.clearActiveCard()
+    }
     return (
         <>
             <nav id="nav-bar">
