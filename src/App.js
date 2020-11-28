@@ -33,7 +33,7 @@ const mapDispatchToProps = (dispatch) =>{
   return {
     setGroupNames: (name) => {
       dispatch({
-        type: 'SET_MAGIC_CARDS', payload: cardObject
+        type: "SET_GROUP_NAMES", payload: name
       })
     }
   }
