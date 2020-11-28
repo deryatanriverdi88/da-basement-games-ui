@@ -1,4 +1,4 @@
-export default function ActiveCard() {
+export default function ActiveCard({card}) {
     return (
         <div>
         </div>
