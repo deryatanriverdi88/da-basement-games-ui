@@ -1,5 +1,5 @@
-import MagicCards from './MagicCards'
+import Sets from './Sets'
 
 export default {
-    MagicCards,
+    Sets
 }

@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import {useEffect} from 'react';
 import Routes from './Routes'
 import {withRouter} from 'react-router-dom'
 import './STYLES/style.css'
@@ -7,12 +7,16 @@ import NavBar from './Components/NavBar'
 
 function App(props) {
   useEffect(() => {
-    fetch('https://da-basement-games-api.herokuapp.com/favorite_cards')
+    fetch('https://da-basement-games-api.herokuapp.com/sets')
     .then(res => res.json())
     .then(cardItems => {
-      console.log(cardItems)
-    })
-  }, [props])
+        let sets = []
+         cardItems.forEach(card => {
+              sets.push(card.group_name)
+          })
+        props.setGroupNames(sets.sort((a,b) => a > b ? 1 : -1))
+     })
+  }, [])
 
   return (
     <div className="App">
@@ -27,9 +31,9 @@ function App(props) {
 
 const mapDispatchToProps = (dispatch) =>{
   return {
-    setMagicCards: (cardObject) => {
+    setGroupNames: (name) => {
       dispatch({
-        type: 'SET_MAGIC_CARDS', payload: cardObject
+        type: "SET_GROUP_NAMES", payload: name
       })
     }
   }
