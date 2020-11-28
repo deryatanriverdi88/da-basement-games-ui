@@ -7,4 +7,4 @@ function SetCards() {
     )
 }
 
-export default SetCards
+export default withRouter(SetCards)
