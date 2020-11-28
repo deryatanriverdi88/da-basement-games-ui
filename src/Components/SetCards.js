@@ -2,8 +2,9 @@ import {withRouter } from "react-router-dom"
 
 function SetCards({setCard, card}) {
     return (
-        <div>
-        </div>
+        <>
+            <p onClick={()=>{setCard(card)}}>{card.name}</p>
+        </>
     )
 }
 
