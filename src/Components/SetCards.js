@@ -1,6 +1,6 @@
 import {withRouter } from "react-router-dom"
 
-function SetCards() {
+function SetCards({setCard, card}) {
     return (
         <div>
         </div>
