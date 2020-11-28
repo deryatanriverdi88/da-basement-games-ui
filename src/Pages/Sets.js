@@ -49,8 +49,23 @@ function Sets(props) {
         })
     }
     return (
-        <div>
+        <>
+        <div style={{display: "flex", justifyContent: "space-between"}}>
+            <div style={{width: "50%"}}>
+            {
+                props.groupsCards && props.groupsCards.length > 0 ?
+                props.groupsCards.map(card =>{
+                    return <SetCards card={card} key={card.id} setCard={setCard}/>
+                })
+                :
+                props.groupNames.map(set =>{
+                    return <SetItem set={set} key={set} handleSetClick={handleSetClick} />
+                })
+            }
+            </div>
+            <ActiveCard card={props.activeCard}/>
         </div>
+    </>
     )
 }
 
