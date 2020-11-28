@@ -1,7 +1,8 @@
 export default function SetItem({handleSetClick, set}) {
     return (
-        <div>
-        </div>
+        <>
+            <p onClick={handleSetClick}>{set}</p>
+        </>
     )
 }
 
