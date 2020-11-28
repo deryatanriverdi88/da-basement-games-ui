@@ -7,12 +7,16 @@ import NavBar from './Components/NavBar'
 
 function App(props) {
   useEffect(() => {
-    fetch('https://da-basement-games-api.herokuapp.com/favorite_cards')
+    fetch('https://da-basement-games-api.herokuapp.com/sets')
     .then(res => res.json())
     .then(cardItems => {
-      console.log(cardItems)
-    })
-  }, [props])
+        let sets = []
+         cardItems.forEach(card => {
+              sets.push(card.group_name)
+          })
+        props.setGroupNames(sets.sort((a,b) => a > b ? 1 : -1))
+     })
+  }, [])
 
   return (
     <div className="App">
