@@ -89,4 +89,12 @@ const mapDispatchToProps = (dispatch) =>{
     }
 }
 
+const mapStateToProps = (state) => {
+    return {
+        magicCards: state.magicCards.magicCards,
+        groupsCards: state.magicCards.groupsCards,
+        groupNames: state.magicCards.groupNames,
+        activeCard: state.magicCards.activeCard
+    }
+}
 export default Sets
