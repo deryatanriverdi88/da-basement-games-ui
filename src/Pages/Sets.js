@@ -39,6 +39,15 @@ function Sets(props) {
         props.setActiveCard(card)
         props.history.push({pathname: `/sets/${card.group_name}/${card.name}`, state: {card: card, set:props.groupsCards}})
     }
+
+    const handleSetClick = async(e)=>{
+        await fetch(`https://da-basement-games-api.herokuapp.com/cards?setName=${e.target.textContent}`)
+        .then(res => res.json())
+        .then(cards => {
+            props.setGroupsCards(cards)
+            props.history.push({pathname: `/sets/${e.target.textContent}`, state: {setCards: cards}})
+        })
+    }
     return (
         <div>
         </div>
