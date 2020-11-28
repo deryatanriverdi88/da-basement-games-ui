@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import {useEffect} from 'react';
 import Routes from './Routes'
 import {withRouter} from 'react-router-dom'
 import './STYLES/style.css'
