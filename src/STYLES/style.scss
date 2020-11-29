@@ -2,14 +2,14 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    list-style: none;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&family=Nerko+One&display=swap');
 body{
     width: 100%;
-    height: 100vh;
+    // height: 100vh;
     font-family: 'Inconsolata', monospace;
+    overflow: hidden;
 }
 
 body:before{
