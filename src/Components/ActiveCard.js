@@ -50,6 +50,7 @@ export default function ActiveCard({card}) {
                                 }
                             </p>
                             <p><span> Type  </span> :{card.sub_type}</p>
+                            <p><span> Rarity </span> : {card.rarity}</p>
                             <p><span> Amount </span> : {card.amount}</p>
                         </div>
                         <div className="card-text">
