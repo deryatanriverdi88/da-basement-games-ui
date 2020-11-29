@@ -148,9 +148,11 @@ body:before{
     }
     #nav-bar{
         height: 40px;
-        .link{
-            font-size: 25px;
-            line-height: 38px;
+        .link-div{
+            .link{
+                font-size: 25px;
+                line-height: 38px;
+            }
         }
     }
 
