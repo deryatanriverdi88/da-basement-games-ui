@@ -63,13 +63,13 @@ body:before {
   line-height: 48px;
 }
 
-.set-and-card-container {
+.set-card-search-container {
   margin: auto;
   width: 50%;
   padding-top: 10px;
 }
 
-.set-and-card-container .card {
+.set-card-search-container .card {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -78,7 +78,7 @@ body:before {
           justify-content: flex-start;
 }
 
-.set-and-card-container .card .img-div {
+.set-card-search-container .card .img-div {
   width: 50%;
   margin: 0 10px;
   display: -webkit-box;
@@ -86,7 +86,7 @@ body:before {
   display: flex;
 }
 
-.set-and-card-container .card img {
+.set-card-search-container .card img {
   margin: auto;
   width: 80%;
   height: 100%;
