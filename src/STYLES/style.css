@@ -1,1 +1,162 @@
-/* No CSS *//*# sourceMappingURL=style.css.map */
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&family=Nerko+One&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  list-style: none;
+}
+
+body {
+  background-image: url("da-basement-games.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position-x: 100%;
+  background-attachment: fixed;
+  font-family: 'Inconsolata', monospace;
+}
+
+#header {
+  width: 100%;
+}
+
+#header .header-name {
+  color: white;
+  font-size: 45px;
+  padding-left: 10px;
+}
+
+#nav-bar {
+  height: 50px;
+  padding: 0 10px 0 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+#nav-bar .link {
+  display: block;
+  font-size: 35px;
+  color: white;
+  text-decoration: none;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  line-height: 48px;
+}
+
+.set-and-card-container {
+  margin: auto;
+  width: 50%;
+  padding-top: 10px;
+}
+
+.set-and-card-container .card {
+  margin: 10px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.set-and-card-container .card .img-div {
+  width: 50%;
+  margin: 0 10px;
+}
+
+.set-and-card-container .card img {
+  width: 100%;
+  height: 100%;
+}
+
+.set-name {
+  letter-spacing: 5px;
+  padding: 5px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-bottom: 5px;
+  border-radius: 5px;
+}
+
+.card-div {
+  width: 80%;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 40px;
+  padding: 10px;
+}
+
+.card-div span {
+  font-weight: bold;
+}
+
+.card-div .card-name {
+  text-align: center;
+  font-size: 30px;
+  text-decoration: underline;
+  letter-spacing: 5px;
+}
+
+.card-div .card-details {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.card-div .card-details .card-price {
+  padding: 10px;
+  width: 60%;
+  border-right: 2px solid black;
+}
+
+.card-div .card-details .type-details {
+  padding: 10px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 40%;
+}
+
+.card-div .card-details .card-text {
+  border-top: 2px solid black;
+  padding: 10px;
+}
+
+@supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
+  #nav-bar, .card-div, .set-name {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(15px);
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  #header .header-name {
+    font-size: 30px;
+  }
+  #nav-bar {
+    height: 40px;
+  }
+  #nav-bar .link {
+    font-size: 25px;
+    line-height: 38px;
+  }
+  .set-and-card-container {
+    width: 100%;
+  }
+  .set-name {
+    width: 100%;
+    letter-spacing: normal;
+  }
+  .set-and-card-container .card img {
+    height: 50%;
+  }
+}
+/*# sourceMappingURL=style.css.map */
