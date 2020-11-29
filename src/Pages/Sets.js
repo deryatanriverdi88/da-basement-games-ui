@@ -23,6 +23,7 @@ function Sets(props) {
                 .then(res=>res.json())
                 .then(cards => {
                     props.setGroupsCards(cards)
+                    props.clearActiveCard()
                 })
             }else if(path.length === 3){
                 fetch(`https://da-basement-games-api.herokuapp.com/cards?setName=${path[1]}`)
@@ -33,7 +34,7 @@ function Sets(props) {
                 })
             }
         }
-    }, [])
+    }, [location.pathname])
 
     const setCard = (card) => {
         props.setActiveCard(card)
@@ -48,6 +49,7 @@ function Sets(props) {
             props.history.push({pathname: `/sets/${e.target.textContent}`, state: {setCards: cards}})
         })
     }
+
     return (
         <>
         <div style={{display: "flex", justifyContent: "space-between"}}>
@@ -85,6 +87,11 @@ const mapDispatchToProps = (dispatch) =>{
           dispatch({
             type: "SET_ACTIVE_CARD", payload: card
           })
+      },
+      clearActiveCard: () => {
+        dispatch({
+            type: "CLEAR_ACTIVE_CARD"
+         })
       }
     }
 }
