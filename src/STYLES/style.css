@@ -185,10 +185,10 @@ body:before {
     font-size: 20px;
     letter-spacing: normal;
   }
-  .set-and-card-container {
+  .set-card-search-container {
     width: 100%;
   }
-  .set-and-card-container .card img {
+  .set-card-search-container .card img {
     width: 100%;
     height: 70%;
   }
