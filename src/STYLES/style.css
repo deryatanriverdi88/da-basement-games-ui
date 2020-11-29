@@ -17,9 +17,6 @@ body:before {
   content: "";
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 100% 100%;
-  background-position-x: 100%;
-  background-attachment: fixed;
   background-image: url("da-basement-games.jpg");
   background-size: cover;
   position: absolute;
@@ -55,7 +52,8 @@ body:before {
 #nav-bar .link {
   display: block;
   font-size: 35px;
-  color: white;
+  color: black;
+  font-weight: bold;
   text-decoration: none;
   width: -webkit-fit-content;
   width: -moz-fit-content;
@@ -180,6 +178,7 @@ body:before {
   }
   .card-div .card-name {
     font-size: 20px;
+    letter-spacing: normal;
   }
 }
 /*# sourceMappingURL=style.css.map */
