@@ -11,6 +11,7 @@ function Sets(props) {
         if(location.state){
             if(location.state.setCards && location.state.setCards.length > 0){
                 props.setGroupsCards(location.state.setCards)
+                props.clearActiveCard()
             }else if (location.state.card && location.state.card.id){
                 props.setActiveCard(location.state.card)
                 props.setGroupsCards(location.state.set)
@@ -18,7 +19,10 @@ function Sets(props) {
         }else if(!location.state){
             let path = location.pathname.split('/')
             path.shift()
-            if(path.length === 2){
+            if(path.length === 1) {
+                props.clearActiveCard()
+                props.clearGroupsCards()
+            }else if(path.length === 2){
                 fetch(`https://da-basement-games-api.herokuapp.com/cards?setName=${path[1]}`)
                 .then(res=>res.json())
                 .then(cards => {
