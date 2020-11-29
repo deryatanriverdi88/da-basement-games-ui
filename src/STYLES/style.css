@@ -145,6 +145,10 @@ body:before {
   padding: 10px;
 }
 
+.css-2b097c-container {
+  z-index: 3;
+}
+
 .awssld__bullets {
   opacity: 0;
 }
