@@ -87,6 +87,11 @@ const mapDispatchToProps = (dispatch) =>{
           dispatch({
             type: "SET_ACTIVE_CARD", payload: card
           })
+      },
+      clearActiveCard: () => {
+        dispatch({
+            type: "CLEAR_ACTIVE_CARD"
+         })
       }
     }
 }
