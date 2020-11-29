@@ -2,21 +2,48 @@ import {useEffect, useState} from 'react'
 import { connect } from 'react-redux'
 import {withRouter, useLocation} from 'react-router-dom'
 import ActiveCard from '../Components/ActiveCard'
+import Select from 'react-select';
 
 function Sets(props) {
     const location = useLocation()
+    const [setName, setSetName] = useState("")
+    const [cardInState, setCardInState] = useState({})
+    let cards = []
+    if(props.groupsCards.length > 0){
+        cards =
+        props.groupsCards.map(card =>{
+            return{
+                value: card,
+                label: card.name
+            }
+        })
+    }
+
+    let setNames = []
+    if(props.groupNames){
+        setNames =
+        props.groupNames.map(set =>{
+            return{
+                value: set,
+                label: set
+            }
+        })
+    }
     useEffect(() => {
         if(location.state){
             if(location.state.setCards && location.state.setCards.length > 0){
                 props.setGroupsCards(location.state.setCards)
                 props.clearActiveCard()
+                setSetName(location.state.setCards[0].group_name)
             }else if (location.state.card && location.state.card.id){
                 props.setActiveCard(location.state.card)
                 props.setGroupsCards(location.state.set)
+                setSetName(location.state.card.group_name)
             }
         }else if(!location.state){
             let path = location.pathname.split('/')
             path.shift()
+            console.log(path[1])
             if(path.length === 1) {
                 props.clearActiveCard()
                 props.clearGroupsCards()
@@ -26,12 +53,14 @@ function Sets(props) {
                 .then(cards => {
                     props.setGroupsCards(cards)
                     props.clearActiveCard()
+                    setSetName(path[1])
                 })
             }else if(path.length === 3){
                 fetch(`https://da-basement-games-api.herokuapp.com/cards?setName=${path[1]}`)
                 .then(res=>res.json())
                 .then(cards => {
                     props.setGroupsCards(cards)
+                    setSetName(path[1])
                     props.setActiveCard(cards.find(card => card.name === path[2]))
                 })
             }
@@ -39,34 +68,49 @@ function Sets(props) {
     }, [location.pathname])
 
     const setCard = (card) => {
-        props.setActiveCard(card)
-        props.history.push({pathname: `/sets/${card.group_name}/${card.name}`, state: {card: card, set:props.groupsCards}})
+        setCardInState(card)
+        let cardItem = card.value
+        props.setActiveCard(cardItem)
+        props.history.push({pathname: `/sets/${cardItem.group_name}/${cardItem.name}`, state: {card: cardItem, set:props.groupsCards}})
     }
 
-    const handleSetClick = async(e)=>{
-        await fetch(`https://da-basement-games-api.herokuapp.com/cards?setName=${e.target.textContent}`)
+    const handleSetClick = async(set)=>{
+        let setName = set.value
+        setSetName(setName)
+        await fetch(`https://da-basement-games-api.herokuapp.com/cards?setName=${setName}`)
         .then(res => res.json())
         .then(cards => {
             props.setGroupsCards(cards)
-            props.history.push({pathname: `/sets/${e.target.textContent}`, state: {setCards: cards}})
+            props.history.push({pathname: `/sets/${setName}`, state: {setCards: cards}})
         })
     }
 
     return (
         <>
-        <div style={{display: "flex", justifyContent: "space-between"}}>
-            <div style={{width: "50%"}}>
+        <div className="set-and-card-container">
             {
                 props.groupsCards && props.groupsCards.length > 0 ?
-                props.groupsCards.map(card =>{
-                    return <SetCards card={card} key={card.id} setCard={setCard}/>
-                })
+                <>
+                <h2 className="set-name">Set Name : {setName}</h2>
+                <Select
+                    className="cards"
+                    autoFocus
+                    placeholder="Select a card..."
+                    value={cardInState}
+                    onChange={setCard}
+                    options={cards}
+                />
+                </>
                 :
-                props.groupNames.map(set =>{
-                    return <SetItem set={set} key={set} handleSetClick={handleSetClick} />
-                })
+                <Select
+                    className="sets"
+                    autoFocus
+                    placeholder="Select a set.."
+                    value={setName}
+                    onChange={handleSetClick}
+                    options={setNames}
+                />
             }
-            </div>
             <ActiveCard card={props.activeCard}/>
         </div>
     </>
