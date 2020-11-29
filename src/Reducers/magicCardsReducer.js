@@ -1,5 +1,7 @@
-export default function magicCardsReducer(state={groupsCards: [], groupNames: [], activeCard: {}}, {type, payload}){
+export default function magicCardsReducer(state={magicCards: [], groupsCards: [], groupNames: [], activeCard: {}}, {type, payload}){
     switch (type) {
+        case 'SET_MAGIC_CARDS':
+            return {...state, magicCards: payload}
         case 'SET_GROUP_NAMES':
             return {...state, groupNames: payload}
         case 'SET_GROUPS_CARDS':
