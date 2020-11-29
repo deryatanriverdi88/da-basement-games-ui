@@ -30,6 +30,9 @@ function Sets(props) {
         })
     }
     useEffect(() => {
+        if(!setCardInState.value){
+            setCardInState({value:{},label:"Select a card..." })
+        }
         if(location.state){
             if(location.state.setCards && location.state.setCards.length > 0){
                 props.setGroupsCards(location.state.setCards)
@@ -39,6 +42,7 @@ function Sets(props) {
                 props.setActiveCard(location.state.card)
                 props.setGroupsCards(location.state.set)
                 setSetName(location.state.card.group_name)
+                setCardInState({value:location.state.card ,label:location.state.card.name })
             }
         }else if(!location.state){
             let path = location.pathname.split('/')
