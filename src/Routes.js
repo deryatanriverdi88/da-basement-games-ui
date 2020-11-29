@@ -6,10 +6,12 @@ const Routes = () => {
     return(
         <div>
             <Switch>
-                <Route path="/" component={Pages.Sets}></Route>
-                <Route path='/sets' component={Pages.Sets}></Route>
+                <Route exact path='/sets' component={Pages.Sets}></Route>
                 <Route path="/sets/:setname" component={Pages.Sets}></Route>
-                <Route exact path="sets/:setname/:cardname" component={Pages.Sets}></Route>
+                <Route path="sets/:setname/:cardname" component={Pages.Sets}></Route>
+                <Route path="/" component={Pages.Search}></Route>
+                <Route path="search" component={Pages.Search}></Route>
+                <Route path="search/:cardname" component={Pages.Search}/>
             </Switch>
         </div>
     )
