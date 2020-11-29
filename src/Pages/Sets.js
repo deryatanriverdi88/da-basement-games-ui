@@ -23,6 +23,7 @@ function Sets(props) {
                 .then(res=>res.json())
                 .then(cards => {
                     props.setGroupsCards(cards)
+                    props.clearActiveCard()
                 })
             }else if(path.length === 3){
                 fetch(`https://da-basement-games-api.herokuapp.com/cards?setName=${path[1]}`)
