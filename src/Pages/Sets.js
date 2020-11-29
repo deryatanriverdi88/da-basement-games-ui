@@ -34,7 +34,7 @@ function Sets(props) {
                 })
             }
         }
-    }, [])
+    }, [location.pathname])
 
     const setCard = (card) => {
         props.setActiveCard(card)
