@@ -154,7 +154,7 @@ body:before {
 .awssld {
   height: 60vh;
   margin: 10px auto;
-  width: 50%;
+  width: 100%;
 }
 
 .awssld__bullets {
@@ -169,7 +169,7 @@ body:before {
   }
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 700px) {
   #header .header-name {
     font-size: 30px;
   }
@@ -208,6 +208,15 @@ body:before {
   }
   .awssld__bullets button {
     background: #2b2222;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .set-card-search-container {
+    width: 80%;
+  }
+  .set-card-search-container .card img {
+    width: 100%;
   }
 }
 /*# sourceMappingURL=style.css.map */
