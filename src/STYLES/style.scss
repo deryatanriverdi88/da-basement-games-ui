@@ -39,16 +39,18 @@ body:before{
 #nav-bar{
     height: 50px;
     padding: 0 10px 0 10px;
-    display: flex;
-    justify-content: flex-start;
-    .link{
-        display: block;
-        font-size: 35px;
-        color: black;
-        font-weight: bold;
-        text-decoration: none;
-        width: fit-content;
-        line-height: 48px;
+    .link-div{
+        display: flex;
+        justify-content: space-evenly;
+        .link{
+            display: block;
+            font-size: 35px;
+            color: black;
+            font-weight: bold;
+            text-decoration: none;
+            width: fit-content;
+            line-height: 48px;
+        }
     }
 }
 
@@ -58,7 +60,6 @@ body:before{
     width: 50%;
     padding-top: 10px;
     .card{
-        margin: 10px 0;
         display: flex;
         justify-content: flex-start;
         .img-div{
@@ -119,15 +120,20 @@ body:before{
 }
 
 .css-2b097c-container{
-    z-index: 3;
+    z-index: 11;
 }
 
+.awssld{
+    height: 60vh;
+    margin: 10px auto;
+    width:50%;
+}
 .awssld__bullets{
     opacity: 0;
 }
 
 @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
-    #nav-bar, .set-name, .awssld__content{
+    #nav-bar, .set-name, .awssld__content, .cards-are-loading{
       -webkit-backdrop-filter: blur(10px) !important;
       backdrop-filter: blur(15px) !important;
       background-color: rgba(255, 255, 255, 0.5s) !important;
@@ -171,7 +177,7 @@ body:before{
     }
     .awssld{
         height: 60vh;
-        margin: auto;
+        margin: 10px auto;
         width: 100%;
     }
 
