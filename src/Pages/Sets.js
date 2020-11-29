@@ -49,6 +49,7 @@ function Sets(props) {
             props.history.push({pathname: `/sets/${e.target.textContent}`, state: {setCards: cards}})
         })
     }
+
     return (
         <>
         <div style={{display: "flex", justifyContent: "space-between"}}>
