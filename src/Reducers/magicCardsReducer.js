@@ -10,6 +10,8 @@ export default function magicCardsReducer(state={groupsCards: [], groupNames: []
             return {...state, activeCard: {}}
         case 'CLEAR_GROUPS_CARDS':
             return {...state, groupsCards: []}
+        case 'CLEAR_ACTIVE_CARD':
+            return {...state, activeCard: []}
         default:
             return state
     }
