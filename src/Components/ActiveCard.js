@@ -9,6 +9,7 @@ export default function ActiveCard({card}) {
             {
                 card.id ?
                 <>
+                <AwesomeSlider cssModule={AwesomeSliderStyles}  animation="fallAnimation">
                 <div className="img-div">
                     <img src={img_url} alt={name}/>
                 </div>
@@ -36,15 +37,16 @@ export default function ActiveCard({card}) {
                             }
                         </div>
                         <div className="type-details">
-                            <p><span> Type  </span> :{card.sub_type}</p>
-                            <p><span> Rarity </span> : {card.rarity}</p>
-                            <p><span> Amount </span> : {card.amount}</p>
+                            <p><span> Type  </span> :{sub_type}</p>
+                            <p><span> Rarity </span> : {rarity}</p>
+                            <p><span> Amount </span> : {amount}</p>
                         </div>
                         <div className="card-text">
-                            <p><span> Text </span>:{card.text}</p>
+                            <p><span> Text </span>:{text}</p>
                         </div>
                     </div>
                 </div>
+                </AwesomeSlider>
                 </>
                 :
                 null
