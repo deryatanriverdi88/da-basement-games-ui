@@ -16,80 +16,44 @@ export default function ActiveCard({card}) {
                             card.foil ===  true ?
                             <>
                                 <ul>
-                                <li>
-                                    <span>Foil Low Price :</span>
-                                    ${foil_low_price}
-                                </li>
-                                <li>
-                                    <span>Foil Mid Price : </span>
-                                    ${foil_mid_price}
-                                </li>
-                                <li>
-                                    <span>Foil High Price :</span>
-                                    ${foil_high_price}
-                                </li>
-                                <li>
-                                    <span>Foil Market Price : </span>
-                                    ${foil_market_price}
-                                </li>
+                                    <li>
+                                        <span>Foil Mid Price  </span>
+                                        : ${foil_mid_price}
+                                    </li>
                                 </ul>
                             </>
                             :
                             <>
                                 <ul>
-                                <li>
-                                    <span>Low Price :</span>
-                                    ${normal_low_price}
-                                </li>
-                                <li>
-                                    <span>Mid Price :</span>
-                                    ${normal_mid_price}
-                                </li>
-                                <li>
-                                    <span>High Price :</span>
-                                    ${normal_high_price}
-                                </li>
-                                <li>
-                                    <span>Market Price : </span>
-                                    ${normal_market_price}
-                                </li>
+                                    <li>
+                                        <span>Normal Price </span>
+                                        : ${normal_mid_price}
+                                    </li>
                                 </ul>
                                 <ul>
-                                <li>
-                                    <span>Foil Low Price : </span>
-                                    ${foil_low_price}
-                                </li>
-                                <li>
-                                    <span>Foil Mid Price : </span>
-                                    ${foil_mid_price}
-                                </li>
-                                <li>
-                                    <span>Foil High Price :</span>
-                                    ${foil_high_price}
-                                </li>
-                                <li>
-                                    <span>Foil Market Price : </span>
-                                    ${foil_market_price}
-                                </li>
+                                    <li>
+                                        <span>Foil Price </span>
+                                        : ${foil_mid_price}
+                                    </li>
                                 </ul>
                             </>
                             }
                         </div>
                         <div className="type-details">
                             <p className="foil">
-                                <span> Foil : </span>
+                                <span> Foil </span>
                                 {
                                     card.foil?
-                                    "Yes"
+                                    ": Yes"
                                     :
-                                    "No"
+                                    ": No"
                                 }
                             </p>
-                            <p><span> Type : </span>{card.sub_type}</p>
-                            <p> Amount :{card.amount}</p>
+                            <p><span> Type  </span> :{card.sub_type}</p>
+                            <p><span> Amount </span> : {card.amount}</p>
                         </div>
                         <div className="card-text">
-                            <p><span> Text :</span>{card.text}</p>
+                            <p><span> Text </span>:{card.text}</p>
                         </div>
                     </div>
                 </div>

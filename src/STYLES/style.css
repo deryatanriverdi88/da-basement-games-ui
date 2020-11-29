@@ -94,6 +94,7 @@ body {
 
 .card-div span {
   font-weight: bold;
+  text-decoration: underline;
 }
 
 .card-div .card-name {
@@ -104,24 +105,21 @@ body {
 }
 
 .card-div .card-details {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
 }
 
 .card-div .card-details .card-price {
   padding: 10px;
-  width: 60%;
-  border-right: 2px solid black;
+  width: 100%;
+  border-bottom: 2px solid black;
 }
 
 .card-div .card-details .type-details {
   padding: 10px;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  width: 40%;
+  width: 100%;
 }
 
 .card-div .card-details .card-text {
@@ -137,7 +135,7 @@ body {
   }
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 900px) {
   #header .header-name {
     font-size: 30px;
   }
@@ -148,15 +146,25 @@ body {
     font-size: 25px;
     line-height: 38px;
   }
+  .set-name {
+    width: 100%;
+    font-size: 20px;
+    letter-spacing: normal;
+  }
   .set-and-card-container {
     width: 100%;
   }
-  .set-name {
-    width: 100%;
-    letter-spacing: normal;
+  .set-and-card-container .card .img-div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
   }
   .set-and-card-container .card img {
-    height: 50%;
+    margin: auto;
+    height: 70%;
+  }
+  .card-div .card-name {
+    font-size: 20px;
   }
 }
 /*# sourceMappingURL=style.css.map */
