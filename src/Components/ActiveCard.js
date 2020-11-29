@@ -3,7 +3,7 @@ import AwesomeSliderStyles from 'react-awesome-slider/dist/styles.css';
 import 'react-awesome-slider/dist/custom-animations/fall-animation.css'
 
 export default function ActiveCard({card}) {
-    const { name, img_url, normal_low_price, normal_mid_price, normal_high_price, normal_market_price, foil_low_price, foil_mid_price, foil_high_price, foil_market_price, group_name, rarity } = card
+    const { name, normal_mid_price, foil_mid_price, rarity, sub_type, amount, text, img_url } = card
     return (
         <div className="card">
             {
