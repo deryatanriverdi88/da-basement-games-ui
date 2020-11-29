@@ -15,40 +15,23 @@ export default function ActiveCard({card}) {
                             {
                             card.foil ===  true ?
                             <>
-                                <ul>
-                                    <li>
-                                        <span>Foil Mid Price  </span>
+                                <p><span>Foil</span> : Yes</p>
+                                <p>
+                                    <span>Foil Mid Price  </span>
                                         : ${foil_mid_price}
-                                    </li>
-                                </ul>
+                                </p>
                             </>
                             :
                             <>
-                                <ul>
-                                    <li>
-                                        <span>Normal Price </span>
-                                        : ${normal_mid_price}
-                                    </li>
-                                </ul>
-                                <ul>
-                                    <li>
-                                        <span>Foil Price </span>
-                                        : ${foil_mid_price}
-                                    </li>
-                                </ul>
+                                <p><span>Foil</span> : No</p>
+                                <p>
+                                    <span>TCG Mid</span>
+                                      : ${normal_mid_price}
+                                </p>
                             </>
                             }
                         </div>
                         <div className="type-details">
-                            <p className="foil">
-                                <span> Foil </span>
-                                {
-                                    card.foil?
-                                    ": Yes"
-                                    :
-                                    ": No"
-                                }
-                            </p>
                             <p><span> Type  </span> :{card.sub_type}</p>
                             <p><span> Rarity </span> : {card.rarity}</p>
                             <p><span> Amount </span> : {card.amount}</p>
