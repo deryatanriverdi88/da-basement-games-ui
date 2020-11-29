@@ -6,7 +6,8 @@ const Routes = () => {
     return(
         <div>
             <Switch>
-                <Route path='/sets' render={() => <Pages.Sets/>}></Route>
+                <Route path="/" component={Pages.Sets}></Route>
+                <Route path='/sets' component={Pages.Sets}></Route>
                 <Route path="/sets/:setname" component={Pages.Sets}></Route>
                 <Route exact path="sets/:setname/:cardname" component={Pages.Sets}></Route>
             </Switch>
