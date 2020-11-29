@@ -176,7 +176,7 @@ body:before {
   #nav-bar {
     height: 40px;
   }
-  #nav-bar .link {
+  #nav-bar .link-div .link {
     font-size: 25px;
     line-height: 38px;
   }
