@@ -91,7 +91,7 @@ function Sets(props) {
 
     return (
         <>
-        <div className="set-and-card-container">
+        <div className="set-card-search-container">
             {
                 props.groupsCards && props.groupsCards.length > 0 ?
                 <>
