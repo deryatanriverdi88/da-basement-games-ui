@@ -5,7 +5,7 @@ import ActiveCard from '../Components/ActiveCard'
 import {withRouter, useLocation} from 'react-router-dom'
 
 function Search(props) {
-    const [cardInState, setCardInState] = useState({})
+    const [cardInState, setCardInState] = useState("")
     const location = useLocation()
     useEffect(() => {
         fetch("https://da-basement-games-api.herokuapp.com/favorite_cards")
