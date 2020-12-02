@@ -37,6 +37,7 @@ export default function ActiveCard({card}) {
                             }
                         </div>
                         <div className="type-details">
+                            <p><span> Set </span> :{group_name}</p>
                             <p><span> Type  </span> :{sub_type}</p>
                             <p><span> Rarity </span> : {rarity}</p>
                             <p><span> Amount </span> : {amount}</p>
