@@ -5,7 +5,7 @@ import ActiveCard from '../Components/ActiveCard'
 import {withRouter, useLocation} from 'react-router-dom'
 
 function Search(props) {
-    const [cardInState, setCardInState] = useState({})
+    const [cardInState, setCardInState] = useState("")
     const location = useLocation()
     useEffect(() => {
         fetch("https://da-basement-games-api.herokuapp.com/favorite_cards")
@@ -14,13 +14,12 @@ function Search(props) {
           props.setMagicCards(cards)
         })
         if(!setCardInState.value){
-            setCardInState({value:{},label:"Search a card..." })
+            setCardInState("")
         }
-        console.log(location.state)
         if(location.state){
             if (location.state.card && location.state.card.id){
                 props.setActiveCard(location.state.card)
-                setCardInState({value:location.state.card ,label:location.state.card.name })
+                setCardInState(location.state.card)
             }
         }else if(!location.state){
             let path = location.pathname.split('/')
@@ -40,32 +39,43 @@ function Search(props) {
 
     const setCard = (card) => {
         setCardInState(card)
-        let cardItem = card.value
-        props.setActiveCard(cardItem)
-        props.history.push({pathname: `/search/${cardItem.id}`, state: {card: cardItem}})
+        console.log(card)
+        props.setActiveCard(card)
+        props.history.push({pathname: `/search/${card.id}`, state: {card: card}})
     }
 
-    let cardsToSearch = []
-    cardsToSearch = props.magicCards.map(card => {
-        return{
-            value: card,
-            label: card.name
+    const customFilter = (option, searchText) =>{
+        if (
+          option.data.name.toLowerCase().startsWith(searchText.toLowerCase())
+        ) {
+          return true;
+        } else {
+          return false;
         }
-    })
+      }
+
     return (
         <div className="set-card-search-container">
             <Select
                     className="cards"
                     autoFocus
                     placeholder="Search a card..."
-                    value={cardInState}
                     onChange={setCard}
-                    options={cardsToSearch}
+                    onInputChange={cardInState}
+                    options={props.magicCards}
+                    getOptionValue={option => `${option.name}`}
+                    getOptionLabel={option => `${option.name} / ${option.group_name}`}
+                    isOptionSelected={option => {
+                       return cardInState.id === option.id ? true : false;
+                    }}
+                    filterOption={customFilter}
+                    autoFocus={true}
+                    isSearchable={true}
             />
             <p className="cards-are-loading">
                 {
-                    cardsToSearch.length > 0 ?
-                    `There are ${cardsToSearch.length} of cards in database`
+                    props.magicCards.length > 0 ?
+                    `There are ${props.magicCards.length} of cards in database`
                     :
                     "Cards are loading..."
                 }
