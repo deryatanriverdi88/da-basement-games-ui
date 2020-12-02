@@ -14,13 +14,12 @@ function Search(props) {
           props.setMagicCards(cards)
         })
         if(!setCardInState.value){
-            setCardInState({value:{},label:"Search a card..." })
+            setCardInState("")
         }
-        console.log(location.state)
         if(location.state){
             if (location.state.card && location.state.card.id){
                 props.setActiveCard(location.state.card)
-                setCardInState({value:location.state.card ,label:location.state.card.name })
+                setCardInState(location.state.card)
             }
         }else if(!location.state){
             let path = location.pathname.split('/')
