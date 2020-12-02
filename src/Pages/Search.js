@@ -60,9 +60,17 @@ function Search(props) {
                     className="cards"
                     autoFocus
                     placeholder="Search a card..."
-                    value={cardInState}
                     onChange={setCard}
-                    options={cardsToSearch}
+                    onInputChange={cardInState}
+                    options={props.magicCards}
+                    getOptionValue={option => `${option.name}`}
+                    getOptionLabel={option => `${option.name} / ${option.group_name}`}
+                    isOptionSelected={option => {
+                       return cardInState.id === option.id ? true : false;
+                    }}
+                    filterOption={customFilter}
+                    autoFocus={true}
+                    isSearchable={true}
             />
             <p className="cards-are-loading">
                 {
