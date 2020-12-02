@@ -39,9 +39,9 @@ function Search(props) {
 
     const setCard = (card) => {
         setCardInState(card)
-        let cardItem = card.value
-        props.setActiveCard(cardItem)
-        props.history.push({pathname: `/search/${cardItem.id}`, state: {card: cardItem}})
+        console.log(card)
+        props.setActiveCard(card)
+        props.history.push({pathname: `/search/${card.id}`, state: {card: card}})
     }
 
     let cardsToSearch = []
