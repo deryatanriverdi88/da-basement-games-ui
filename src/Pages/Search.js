@@ -44,13 +44,16 @@ function Search(props) {
         props.history.push({pathname: `/search/${card.id}`, state: {card: card}})
     }
 
-    let cardsToSearch = []
-    cardsToSearch = props.magicCards.map(card => {
-        return{
-            value: card,
-            label: card.name
+    const customFilter = (option, searchText) =>{
+        if (
+          option.data.name.toLowerCase().startsWith(searchText.toLowerCase())
+        ) {
+          return true;
+        } else {
+          return false;
         }
-    })
+      }
+
     return (
         <div className="set-card-search-container">
             <Select
