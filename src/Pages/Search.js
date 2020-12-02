@@ -74,8 +74,8 @@ function Search(props) {
             />
             <p className="cards-are-loading">
                 {
-                    cardsToSearch.length > 0 ?
-                    `There are ${cardsToSearch.length} of cards in database`
+                    props.magicCards.length > 0 ?
+                    `There are ${props.magicCards.length} of cards in database`
                     :
                     "Cards are loading..."
                 }
