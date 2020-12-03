@@ -8,11 +8,6 @@ function Search(props) {
     const [cardInState, setCardInState] = useState("")
     const location = useLocation()
     useEffect(() => {
-        fetch("https://da-basement-games-api.herokuapp.com/favorite_cards")
-        .then(res => res.json())
-        .then(cards => {
-          props.setMagicCards(cards)
-        })
         if(!setCardInState.value){
             setCardInState("")
         }
