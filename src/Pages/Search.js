@@ -86,11 +86,6 @@ function Search(props) {
 
 const mapDispatchToProps = (dispatch) =>{
     return {
-      setMagicCards: (cards) =>{
-        dispatch({
-            type: "SET_MAGIC_CARDS", payload: cards
-        })
-      },
       setActiveCard: (card) => {
           dispatch({
             type: "SET_ACTIVE_CARD", payload: card
