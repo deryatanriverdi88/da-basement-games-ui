@@ -36,9 +36,11 @@ function Search(props) {
 
     const setCard = (card) => {
         setCardInState(card)
-        console.log(card)
         props.setActiveCard(card)
         props.history.push({pathname: `/search/${card.id}`, state: {card: card}})
+        setTimeout(() => {
+            setCardInState("")
+        }, 1000)
     }
 
     const customFilter = (option, searchText) =>{
