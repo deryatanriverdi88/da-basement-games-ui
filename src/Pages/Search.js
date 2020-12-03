@@ -60,7 +60,7 @@ function Search(props) {
                     autoFocus
                     placeholder="Search a card..."
                     onChange={setCard}
-                    onInputChange={cardInState}
+                    value={cardInState}
                     options={props.magicCards}
                     getOptionValue={option => `${option.name}`}
                     getOptionLabel={option => `${option.name} / ${option.group_name}`}
