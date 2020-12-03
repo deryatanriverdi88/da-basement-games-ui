@@ -16,6 +16,11 @@ function App(props) {
           })
         props.setGroupNames(sets.sort((a,b) => a > b ? 1 : -1))
      })
+     fetch("https://da-basement-games-api.herokuapp.com/favorite_cards")
+        .then(res => res.json())
+        .then(cards => {
+          props.setMagicCards(cards)
+      })
   }, [])
 
   return (
