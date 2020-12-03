@@ -15,18 +15,20 @@ function Search(props) {
             if (location.state.card && location.state.card.id){
                 props.setActiveCard(location.state.card)
                 setCardInState(location.state.card)
+                setCardInState("")
             }
         }else if(!location.state){
             let path = location.pathname.split('/')
             path.shift()
-            console.log(path[1])
             if(path.length === 1) {
                 props.clearActiveCard()
+                setCardInState("")
             }else if(path.length === 2){
                 fetch(`https://da-basement-games-api.herokuapp.com/favorite_cards/${path[1]}`)
                 .then(res=>res.json())
                 .then(card => {
                     props.setActiveCard(card)
+                    setCardInState("")
                 })
             }
         }
