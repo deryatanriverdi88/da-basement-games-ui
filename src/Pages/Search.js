@@ -8,11 +8,6 @@ function Search(props) {
     const [cardInState, setCardInState] = useState("")
     const location = useLocation()
     useEffect(() => {
-        fetch("https://da-basement-games-api.herokuapp.com/favorite_cards")
-        .then(res => res.json())
-        .then(cards => {
-          props.setMagicCards(cards)
-        })
         if(!setCardInState.value){
             setCardInState("")
         }
@@ -20,18 +15,20 @@ function Search(props) {
             if (location.state.card && location.state.card.id){
                 props.setActiveCard(location.state.card)
                 setCardInState(location.state.card)
+                setCardInState("")
             }
         }else if(!location.state){
             let path = location.pathname.split('/')
             path.shift()
-            console.log(path[1])
             if(path.length === 1) {
                 props.clearActiveCard()
+                setCardInState("")
             }else if(path.length === 2){
                 fetch(`https://da-basement-games-api.herokuapp.com/favorite_cards/${path[1]}`)
                 .then(res=>res.json())
                 .then(card => {
                     props.setActiveCard(card)
+                    setCardInState("")
                 })
             }
         }
@@ -39,9 +36,11 @@ function Search(props) {
 
     const setCard = (card) => {
         setCardInState(card)
-        console.log(card)
         props.setActiveCard(card)
         props.history.push({pathname: `/search/${card.id}`, state: {card: card}})
+        setTimeout(() => {
+            setCardInState("")
+        }, 1000)
     }
 
     const customFilter = (option, searchText) =>{
@@ -61,7 +60,7 @@ function Search(props) {
                     autoFocus
                     placeholder="Search a card..."
                     onChange={setCard}
-                    onInputChange={cardInState}
+                    value={cardInState}
                     options={props.magicCards}
                     getOptionValue={option => `${option.name}`}
                     getOptionLabel={option => `${option.name} / ${option.group_name}`}
@@ -87,11 +86,6 @@ function Search(props) {
 
 const mapDispatchToProps = (dispatch) =>{
     return {
-      setMagicCards: (cards) =>{
-        dispatch({
-            type: "SET_MAGIC_CARDS", payload: cards
-        })
-      },
       setActiveCard: (card) => {
           dispatch({
             type: "SET_ACTIVE_CARD", payload: card

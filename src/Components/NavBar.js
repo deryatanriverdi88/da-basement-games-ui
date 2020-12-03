@@ -11,8 +11,8 @@ function NavBar(props) {
         <>
             <nav id="nav-bar">
                 <div className="link-div">
-                    <Link className="link" to="/search"> Search</Link>
                     <Link className="link" to="/sets" onClick={handleClick}>Sets</Link>
+                    <Link className="link" to="/search"> Search</Link>
                 </div>
             </nav>
         </>
